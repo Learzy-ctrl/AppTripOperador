@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            x:Class="AppTripOperador.View.TabbPageContainer"
+            xmlns:Home="clr-namespace:AppTripOperador.View.Home"
+            xmlns:History="clr-namespace:AppTripOperador.View.History"
+            xmlns:Account="clr-namespace:AppTripOperador.View.Account"
+            BarTextColor="White"
+            BarBackgroundColor="#455968"
+            SelectedTabColor="Black"
+            UnselectedTabColor="White"
+            NavigationPage.HasNavigationBar="False">
+    <Home:Home Title="Inicio"
+               IconImageSource="home" />
+    <History:History Title="Historial"
+                     IconImageSource="history" />
+    <Account:Account Title="Cuenta"
+                     IconImageSource="useric" />
+</TabbedPage>
