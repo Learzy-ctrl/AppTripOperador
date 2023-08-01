@@ -16,7 +16,26 @@ namespace AppTripOperador.View.History
         public History()
         {
             InitializeComponent();
-            BindingContext = new HistoryVM(Navigation);
+            BindingContext = new HistoryVM(Navigation, this);
+        }
+
+        public void RefreshView(bool flag, bool InternetCheck)
+        {
+            if (InternetCheck)
+            {
+                if (flag)
+                {
+                    HistoryView.Content = new WithHistory();
+                }
+                else
+                {
+                    HistoryView.Content = new WithoutHistory();
+                }
+            }
+            else
+            {
+                HistoryView.Content = new WithoutInternet();
+            }
         }
     }
 }

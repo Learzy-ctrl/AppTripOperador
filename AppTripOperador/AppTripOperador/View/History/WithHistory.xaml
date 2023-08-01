@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppTripOperador.View.History.WithHistory">
+    <RefreshView IsRefreshing="{Binding IsRefresh}"
+                 Command="{Binding RefreshPageCommand}">
+        <CollectionView ItemsSource="{Binding ListHistory}"
+                        x:Name="List">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical"
+                                 VerticalItemSpacing="15" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BackgroundColor="#F0F0F0"
+                               HorizontalOptions="CenterAndExpand"
+                               VerticalOptions="CenterAndExpand"
+                               CornerRadius="15">
+                        <Frame CornerRadius="15"
+                               Margin="-10">
+                            <Grid RowDefinitions="5*,5*">
+                                <StackLayout Orientation="Horizontal"
+                                             Grid.Row="0">
+                                    <Label Text="Viaje a: "
+                                           TextColor="Black"
+                                           FontAttributes="Bold" />
+                                    <Label Text="{Binding EndPoint}"
+                                           TextColor="Black"
+                                           FontAttributes="Bold" />
+                                </StackLayout>
+                                <Grid ColumnDefinitions="2*,4*,3*"
+                                      Grid.Row="1">
+                                    <StackLayout Grid.Column="1"
+                                                 Orientation="Horizontal">
+                                        <Label Text="Fecha:"
+                                               TextColor="Black"
+                                               FontAttributes="Bold" />
+                                        <Label Text="{Binding StartDate}"
+                                               TextColor="Black"
+                                               FontAttributes="Bold" />
+                                    </StackLayout>
+                                    <StackLayout Grid.Column="2"
+                                                 Orientation="Horizontal">
+                                        <Label Text="Hora"
+                                               TextColor="Black"
+                                               FontAttributes="Bold" />
+                                        <Label Text="{Binding StartDatetime}"
+                                               TextColor="Black"
+                                               FontAttributes="Bold" />
+                                    </StackLayout>
+                                </Grid>
+                            </Grid>
+                        </Frame>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding Path=BindingContext.GoToHistoryDetailCommand, Source={x:Reference List}}" 
+                                                  CommandParameter="{Binding .}"/>
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+
+        </CollectionView>
+    </RefreshView>
+
+</ContentView>

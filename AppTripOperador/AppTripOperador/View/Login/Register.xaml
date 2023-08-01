@@ -38,41 +38,47 @@
                        Placeholder="Nombre(s)"
                        Visual="Material"
                        BackgroundColor="White"
-                       PlaceholderColor="#B4B4B4" />
+                       PlaceholderColor="#B4B4B4" 
+                       Text="{Binding Name}"/>
                 <Entry FontSize="15"
                        Margin="10,0,35,10"
                        Placeholder="Apellidos"
                        Visual="Material"
                        BackgroundColor="White"
-                       PlaceholderColor="#B4B4B4" />
+                       PlaceholderColor="#B4B4B4" 
+                       Text="{Binding LastName}"/>
                 <Entry FontSize="15"
                        Margin="10,0,35,10"
                        Placeholder="Correo electronico"
                        Keyboard="Email"
                        Visual="Material"
                        BackgroundColor="White"
-                       PlaceholderColor="#B4B4B4" />
+                       PlaceholderColor="#B4B4B4" 
+                       Text="{Binding Email}"/>
                 <Entry FontSize="15"
                        Margin="10,0,35,10"
                        Placeholder="Numero Celular"
                        Keyboard="Telephone"
                        Visual="Material"
                        BackgroundColor="White"
-                       PlaceholderColor="#B4B4B4" />
+                       PlaceholderColor="#B4B4B4" 
+                       Text="{Binding PhoneNumber}"/>
                 <Entry FontSize="15"
                        Margin="10,0,35,10"
                        Placeholder="Contraseña"
                        IsPassword="True"
                        Visual="Material"
                        BackgroundColor="White"
-                       PlaceholderColor="#B4B4B4" />
+                       PlaceholderColor="#B4B4B4" 
+                       Text="{Binding Password}"/>
                 <Entry FontSize="15"
                        Margin="10,0,35,10"
                        Placeholder="Confirmar Contraseña"
                        IsPassword="True"
                        Visual="Material"
                        BackgroundColor="White"
-                       PlaceholderColor="#B4B4B4" />
+                       PlaceholderColor="#B4B4B4" 
+                       Text="{Binding ConfirmPassword}"/>
             </StackLayout>
         </Frame>
         <Button Grid.Row="1"
@@ -85,6 +91,7 @@
                 HorizontalOptions="CenterAndExpand"
                 VerticalOptions="EndAndExpand"
                 Padding="50,20,50,20"
-                Margin="0,0,0,30" />
+                Margin="0,0,0,30"
+                Command="{Binding RegisterMethodCommand}"/>
     </Grid>
 </ContentPage>

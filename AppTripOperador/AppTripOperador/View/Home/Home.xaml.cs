@@ -16,7 +16,26 @@ namespace AppTripOperador.View.Home
         public Home()
         {
             InitializeComponent();
-            BindingContext = new HomeVM(Navigation);
+            BindingContext = new HomeVM(Navigation, this);
+        }
+
+        public void ChangeView(bool flag, bool IsConected)
+        {
+            if (IsConected)
+            {
+                if (flag)
+                {
+                    TravelView.Content = new WithTravel();
+                }
+                else
+                {
+                    TravelView.Content = new WithoutTravel();
+                }
+            }
+            else
+            {
+                TravelView.Content = new WithoutInternet();
+            }
         }
     }
 }
