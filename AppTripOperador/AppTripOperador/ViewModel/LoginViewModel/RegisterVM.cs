@@ -123,6 +123,7 @@ namespace AppTripOperador.ViewModel.LoginViewModel
                 newUser.Email = Email;
                 newUser.Password = Password;
                 newUser.Rol = "3";
+                newUser.IdDevice = SecureStorage.GetAsync("DeviceToken").Result;
 
                 UserDialogs.Instance.ShowLoading("Cargando");
                 try

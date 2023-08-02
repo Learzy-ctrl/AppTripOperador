@@ -1,5 +1,6 @@
 ﻿using AppTripOperador.View;
 using AppTripOperador.View.Login;
+using Plugin.FirebasePushNotification;
 using System;
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -22,7 +23,13 @@ namespace AppTripOperador
             {
                 MainPage = new NavigationPage(new Login());
             }
-            //MainPage = new TabbPageContainer();
+
+            CrossFirebasePushNotification.Current.OnTokenRefresh += Current_OnTokenRefresh;
+        }
+
+        private void Current_OnTokenRefresh(object source, FirebasePushNotificationTokenEventArgs e)
+        {
+            SecureStorage.SetAsync("DeviceToken", e.Token);
         }
 
         protected override void OnStart()
